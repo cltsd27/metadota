@@ -1,0 +1,58 @@
+html(lang="en")
+    head
+        link(type="text/css" rel="stylesheet" href="stylesheets/style.css")
+        link(type="text/css" rel="stylesheet" href="stylesheets/bootstrap.css")
+        link(type="text/css" rel="stylesheet" href="stylesheets/crap.css")
+        script(type ="text/javascript" src="javascripts/jquery-2.2.1.min.js")
+        script(type ="text/javascript" src="javascripts/jquery.tablesorter.min.js")
+        script(type ="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js")
+    body(onload="sort()")
+        script(type="text/javascript" src="javascripts/sort.js")
+        div(class="jumbotron")
+            h1.
+                Very High
+            //this is the nav bar thingy
+        //nav(class="navbar navbar-default")
+            div(class="container-fluid")
+                div(class="navbar-header")
+                    button(type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false")
+                        span(class="sr-only") Toggle Navigation
+                        span(icon-bar)
+                        span(icon-bar)
+                        span(icon-bar)
+                    a(class="navbar-brand" href="#") Menu
+            div(class="collapse navbar-collapse" id="bs-example-navbar-collapse-1")
+                ul(class="nav navbar-nav")
+                    li(class="active")
+                        span(class="sr-only") (current)
+                    ul(class="nav navbar-nav navbar-right")
+                        li
+                            a(href="#") About Us
+                        li(class="dropdown")
+                            a(href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false") Dropdown
+                                span(class="caret")
+                            ul(class="dropdown-menu")
+                                li
+                                    a(href="#") Action
+                                li
+                                    a(href="#") Another Action
+                                li
+                                    a(href="#") Something else here
+                                li(role="separator" class="divider")
+                                li
+                                    a(href="#") Separated link
+        table(id="myTable" class="tablesorter")
+            thead
+                tr: th(colspan="4" style="text-align:center") Hero Meta Data
+                tr
+                    th Hero
+                    th Pick Rate
+                    th Win Rate
+                    th Score
+            tbody
+                each hero, i in dotaData
+                    tr
+                        td #{hero.Hero}
+                        td #{hero["Very High"]["Pick Rate"]}
+                        td #{hero["Very High"]["Win Rate"]}%
+                        td #{hero["Very High"].Score}

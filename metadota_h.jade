@@ -1,0 +1,26 @@
+html
+    head
+        link(type="text/css" rel="stylesheet" href="stylesheets/style.css")
+        link(type="text/css" rel="stylesheet" href="stylesheets/crap.css")
+        script(type ="text/javascript" src="javascripts/jquery-2.2.1.min.js")
+        script(type ="text/javascript" src="javascripts/jquery.tablesorter.min.js")
+    body(onload="sort()")
+        script(type="text/javascript" src="javascripts/sort.js")
+        h1.
+            Very High
+        div
+            table(id="myTable" class="tablesorter")
+                thead
+                    tr: th(colspan="4" style="text-align:center") Hero Meta Data
+                    tr
+                        th Hero
+                        th Pick Rate
+                        th Win Rate
+                        th Score
+                tbody
+                    each hero, i in dotaData
+                        tr
+                            td #{hero.Hero}
+                            td #{hero["High"]["Pick Rate"]}
+                            td #{hero["High"]["Win Rate"]}%
+                            td #{hero["High"].Score}
